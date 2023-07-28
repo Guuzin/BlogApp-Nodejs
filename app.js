@@ -161,7 +161,7 @@ app.use('/admin', admin)
 app.use('/usuarios', usuarios)
 
 //outros
-const port = process.env.PORT || 8081
+const port = process.env.PORT ? Number(process.env.PORT) : 8081
 app.listen(port, () => {
   console.log(`Servidor rodando na porta: ${port}`)
 })

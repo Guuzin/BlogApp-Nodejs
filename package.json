@@ -3,7 +3,7 @@
     "node": "18"
   },
   "scripts": {
-    "start": "node src/app.js"
+    "start": "node app.js"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",

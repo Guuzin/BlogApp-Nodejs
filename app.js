@@ -16,6 +16,7 @@ const categorias = mongoose.model('categorias')
 const passport = require('passport')
 require('./config/auth')(passport)
 const db = require('./config/db')
+const { log } = require('console')
 require('dotenv').config()
 
 //configuraçoes
@@ -60,15 +61,17 @@ app.engine(
 //mongoose
 mongoose.Promise = global.Promise
 mongoose
-  .connect(db.mongoURI, {
+  .connect(db.mongoURI || process.env.DATABASE_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
   .then(() => {
     console.log('mongoDB Conectado...')
+    console.log(db.mongoURI)
   })
   .catch((erro) => {
     console.log('Houve um erro ao se conectar ao mongoDB: ' + erro)
+    console.log(db.mongoURI)
   })
 //em breve
 

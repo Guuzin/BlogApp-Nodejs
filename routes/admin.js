@@ -10,9 +10,6 @@ const { eAdmin } = require('../helpers/eAdmin')
 router.get('/', eAdmin, (req, res) => {
   res.render('admin/index.handlebars')
 })
-router.get('/posts', eAdmin, (req, res) => {
-  res.send('pagina de posts')
-})
 
 router.get('/categorias', eAdmin, (req, res) => {
   categorias
